@@ -11,11 +11,8 @@ def print_array(lst):
         print(*line)
 
 
-def surrender(player):
-    if player == 1:
-        print(f'Player {player+1} won!')
-    else:
-        print('Player 1 won!')
+def surrender():
+    print('You surrendered!')
     quit()
 
 def help():
