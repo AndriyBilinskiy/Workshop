@@ -147,12 +147,6 @@ def create_field():
                 pass
     return field
 
-
-def check_borders(field, i,j,size, rotation):
-    pass
-
-
-
 def display_field(field):
     alp = 'ABCDEFGHIJ'
     print('  1 2 3 4 5 6 7 8 9 10')
