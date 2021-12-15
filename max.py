@@ -18,6 +18,9 @@ def surrender(player):
         print('Player 1 won!')
     quit()
 
+def help():
+    print('Input choords, number first then letter, for example 8A')
+
 if __name__ == '__main__':
     field = [['▢' for _ in range(10)] for __ in range(10)]
     field[2][5] = '>'
