@@ -36,19 +36,25 @@ def display_field(field):
 
 
 def checkHit(map, hit):
+    length = len(hit)
+    if length == 3:
+        hit[0] = hit[0] + hit[1]
+        hit.pop(1)
     for i in range(len(hit)):
         if hit[i].isnumeric():
             hit[i] = int(hit[i])
         else:
             hit[i] = ord(hit[i]) - 65
-    for i in range(len(map)):
-        for j in range(len(map)):
-            if i == hit[1] and j == hit[0] - 1:
-                if map[i][j] == '▢':
-                    map[i][j] = 'X'
-                    return True
-                else:
-                    return False
+    if len(hit) > 0 and hit[0] <= 10 and hit[0] >= 1 and hit[1] <= 9 and hit[1] >= 0:
+        for i in range(len(map)):
+            for j in range(len(map)):
+                if i == hit[1] and j == hit[0] - 1:
+                    if map[i][j] == '▢':
+                        return True
+                    else:
+                        return False
+    else:
+        print('Invalid input!')
 
 
 if __name__ == "__main__":
