@@ -66,6 +66,10 @@ def create_field():
 
     return field
 
+def check_borders(field, i,j,size, rotation):
+    pass
+
+
 
 def display_field(field):
     alp = 'ABCDEFGHIJ'
