@@ -31,40 +31,84 @@ def create_field():
             i, j = random.randint(0,9), random.randint(0,9)
             if rotation == 1:
                 try:
-                    if field[i][j] != "▢" and field[i][j + 1] != "▢":
+                    if field[i][j] != "▢" and field[i+1][j] != "▢":
                         field[i][j] = "▢"
-                        field[i][j+1] = "▢"
+                        field[i+ 1][j] = "▢"
                         break
                 except IndexError:
                     pass
 
             elif rotation == 2:
                 try:
-                    if field[i][j] != "▢" and field[i][j - 1] != "▢":
+                    if field[i][j] != "▢" and field[i - 1][j] != "▢":
                         field[i][j] = "▢"
-                        field[i][j-1] = "▢"
+                        field[i - 1][j] = "▢"
                         break
                 except IndexError:
                     pass
             elif rotation == 3:
                 try:
-                    if field[i][j] != "▢" and field[i+1][j] != "▢":
+                    if field[i][j] != "▢" and field[i][j + 1] != "▢":
                         field[i][j] = "▢"
-                        field[i+1][j] = "▢"
+                        field[i][j + 1] = "▢"
                         break
                 except IndexError:
                     pass
             elif rotation == 4:
                 try:
-                    if field[i][j] != "▢" and field[i-1][j] != "▢":
+                    if field[i][j] != "▢" and field[i][j - 1] != "▢":
                         field[i][j] = "▢"
-                        field[i-1][j] = "▢"
+                        field[i][j - 1] = "▢"
+                        break
+                except IndexError:
+                    pass
+    """
+    # for 3-sized
+    for _ in range(2):
+        while True:
+            # getting rotation:
+            # if 1 then up, if 2 then down, if 3 then left, if 4 then right
+            rotation = random.randint(1, 4)
+            i, j = random.randint(0,9), random.randint(0,9)
+            if rotation == 1:
+                try:
+                    if field[i][j] != "▢" and field[i+1][j] != "▢" and field[i + 2][j] != "▢":
+                        field[i][j] = "▢"
+                        field[i + 1][j] = "▢"
+                        field[i + 2][j] = "▢"
                         break
                 except IndexError:
                     pass
 
+            elif rotation == 2:
+                try:
+                    if field[i][j] != "▢" and field[i - 1][j] != "▢" and :
+                        field[i][j] = "▢"
+                        field[i - 1][j] = "▢"
+                        break
+                except IndexError:
+                    pass
+            elif rotation == 3:
+                try:
+                    if field[i][j] != "▢" and field[i][j + 1] != "▢":
+                        field[i][j] = "▢"
+                        field[i][j + 1] = "▢"
+                        break
+                except IndexError:
+                    pass
+            elif rotation == 4:
+                try:
+                    if field[i][j] != "▢" and field[i][j - 1] != "▢":
+                        field[i][j] = "▢"
+                        field[i][j - 1] = "▢"
+                        break
+                except IndexError:
+                    pass
+    """
+
 
     return field
+
 
 def check_borders(field, i,j,size, rotation):
     pass
