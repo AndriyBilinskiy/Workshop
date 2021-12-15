@@ -18,12 +18,22 @@ def create_field():
 
     # for 1-sized
     for _ in range(4):
-        i, j = random.randint(1,10), random.randint(1,10)
+        i, j = random.randint(0,9), random.randint(0,9)
         if field[i][j] != "▢":
             field[i][j] = "▢"
 
-    return field
+    # for 2-sized
+    """
+    for _ in range(3):
+        while True:
+            i, j = random.randint(0,9), random.randint(0,9)
+            #getting rotation: 
+            # if 1 thenn up, if 2 then down
+            rotation = random.randint(1,4)
+    """
 
+
+    return field
 
 
 def display_field(field):
