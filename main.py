@@ -177,11 +177,14 @@ def checkHit(map, hit):
 
 
 if __name__ == "__main__":
+    print()
+    print('Ship war game')
     field  = create_field()
     while True:
         display_field(field)
         print()
-        hit = list(input())
+        print('Write coordinates: ')
+        hit = list(input('>>> '))
         print()
         print()
         hitted = checkHit(field, hit)
