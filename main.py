@@ -136,6 +136,7 @@ def check_borders(field, i,j,size, rotation):
                     return True
             except IndexError:
                 pass
+    # Not working
     if size == 3:
         if rotation == 1:
             try:
