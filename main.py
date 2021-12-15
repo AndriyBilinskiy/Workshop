@@ -39,11 +39,29 @@ def create_field():
                     pass
 
             elif rotation == 2:
-                pass
+                try:
+                    if field[i][j] != "▢" and field[i][j - 1] != "▢":
+                        field[i][j] = "▢"
+                        field[i][j-1] = "▢"
+                        break
+                except IndexError:
+                    pass
             elif rotation == 3:
-                pass
+                try:
+                    if field[i][j] != "▢" and field[i+1][j] != "▢":
+                        field[i][j] = "▢"
+                        field[i+1][j] = "▢"
+                        break
+                except IndexError:
+                    pass
             elif rotation == 4:
-                pass
+                try:
+                    if field[i][j] != "▢" and field[i-1][j] != "▢":
+                        field[i][j] = "▢"
+                        field[i-1][j] = "▢"
+                        break
+                except IndexError:
+                    pass
 
 
     return field
