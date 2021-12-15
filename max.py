@@ -11,6 +11,13 @@ def print_array(lst):
         print(*line)
 
 
+def surrender(player):
+    if player == 1:
+        print(f'Player {player+1} won!')
+    else:
+        print('Player 1 won!')
+    quit()
+
 if __name__ == '__main__':
     field = [['▢' for _ in range(10)] for __ in range(10)]
     field[2][5] = '>'
