@@ -166,23 +166,30 @@ def display_field(field):
 
 
 def checkHit(map, hit):
+    if hit[0] == "Q":
+        print("YOU SURRENDERED. EXITING GAME...")
+        quit()
     length = len(hit)
     if length == 3:
         hit[0] = hit[0] + hit[1]
         hit.pop(1)
-    for i in range(len(hit)):
-        if hit[i].isnumeric():
-            hit[i] = int(hit[i])
-        else:
-            hit[i] = ord(hit[i]) - 65
-    if len(hit) > 0 and hit[0] <= 10 and hit[0] >= 1 and hit[1] <= 9 and hit[1] >= 0:
-        for i in range(len(map)):
-            for j in range(len(map)):
-                if i == hit[1] and j == hit[0] - 1:
-                    if map[i][j] == '▢':
-                        return True
-                    else:
-                        return False
+    if hit[0].isnumeric():
+        for i in range(len(hit)):
+            if hit[i].isnumeric():
+                hit[i] = int(hit[i])
+            else:
+                hit[i] = ord(hit[i]) - 65
+        if len(hit) > 0 and hit[0] <= 10 and hit[0] >= 1 and hit[1] <= 9 and hit[1] >= 0:
+            for i in range(len(map)):
+                for j in range(len(map)):
+                    if i == hit[1] and j == hit[0] - 1:
+                        if map[i][j] == '▢':
+                            return True
+                        else:
+                            return False
+    else:
+        print('Invalid input')
+        return False
 
 
 if __name__ == "__main__":
@@ -190,8 +197,14 @@ if __name__ == "__main__":
     print('Ship war game')
     field = create_field()
     field1 = [['_' for _ in range(10)] for __ in range(10)]
+    counter = 0
     while True:
+
+
         display_field(field1)
+        if counter == 20:
+            print("____- GOOD GAME! -_____\n \tYOU WON")
+            quit()
         print()
         print('Write coordinates: ')
         hit = list(input('>>> '))
@@ -208,6 +221,7 @@ if __name__ == "__main__":
                     if i == hit[1] and j == hit[0] - 1:
                         if field[i][j] == '▢':
                             field1[i][j] = 'X'
+                            counter += 1
             print('Last hit: Good shot!')
             print()
         elif not hitted:
