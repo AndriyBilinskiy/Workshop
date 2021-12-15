@@ -16,7 +16,13 @@ def create_field():
 
     field = [['_' for _ in range(10)] for __ in range(10)]
 
+    # for 1-sized
+    for _ in range(4):
+        i, j = random.randint(1,10), random.randint(1,10)
+        if field[i][j] != "▢":
+            field[i][j] = "▢"
 
+    return field
 
 
 
@@ -30,4 +36,5 @@ def display_field(field):
 
 
 if __name__ == "__main__":
-    create_field()
+    field  = create_field()
+    display_field(field)
