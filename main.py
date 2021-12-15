@@ -180,7 +180,10 @@ if __name__ == "__main__":
     field  = create_field()
     while True:
         display_field(field)
+        print()
         hit = list(input())
+        print()
+        print()
         hitted = checkHit(field, hit)
         if hitted:
             for i in range(len(field)):
@@ -188,11 +191,13 @@ if __name__ == "__main__":
                     if i == hit[1] and j == hit[0] - 1:
                         if field[i][j] == '▢':
                             field[i][j] = 'X'
-            print('Good shot!')
+            print('Last hit: Good shot!')
+            print()
         elif not hitted:
             for i in range(len(field)):
                 for j in range(len(field)):
                     if i == hit[1] and j == hit[0] - 1:
                         field[i][j] = '*'
                         continue
-            print('You missed')     
+            print('Last hit: You missed')
+            print()
