@@ -23,14 +23,27 @@ def create_field():
             field[i][j] = "▢"
 
     # for 2-sized
-    """
     for _ in range(3):
         while True:
+            # getting rotation:
+            # if 1 then up, if 2 then down, if 3 then left, if 4 then right
+            rotation = random.randint(1, 4)
             i, j = random.randint(0,9), random.randint(0,9)
-            #getting rotation: 
-            # if 1 thenn up, if 2 then down
-            rotation = random.randint(1,4)
-    """
+            if rotation == 1:
+                try:
+                    if field[i][j] != "▢" and field[i][j + 1] != "▢":
+                        field[i][j] = "▢"
+                        field[i][j+1] = "▢"
+                        break
+                except IndexError:
+                    pass
+
+            elif rotation == 2:
+                pass
+            elif rotation == 3:
+                pass
+            elif rotation == 4:
+                pass
 
 
     return field
