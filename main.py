@@ -156,6 +156,65 @@ def display_field(field):
         print(*line)
 
 
+def display_field(field):
+    alp = 'ABCDEFGHIJ'
+    print('  1 2 3 4 5 6 7 8 9 10')
+
+    for i, line in enumerate(field):
+        print(f'{alp[i]} ', end='')
+        print(*line)
+
+
+def checkHit(map, hit):
+    length = len(hit)
+    if length == 3:
+        hit[0] = hit[0] + hit[1]
+        hit.pop(1)
+    for i in range(len(hit)):
+        if hit[i].isnumeric():
+            hit[i] = int(hit[i])
+        else:
+            hit[i] = ord(hit[i]) - 65
+    if len(hit) > 0 and hit[0] <= 10 and hit[0] >= 1 and hit[1] <= 9 and hit[1] >= 0:
+        for i in range(len(map)):
+            for j in range(len(map)):
+                if i == hit[1] and j == hit[0] - 1:
+                    if map[i][j] == '▢':
+                        return True
+                    else:
+                        return False
+
+
 if __name__ == "__main__":
-    field  = create_field()
-    display_field(field)
+    print()
+    print('Ship war game')
+    field = create_field()
+    field1 = [['_' for _ in range(10)] for __ in range(10)]
+    while True:
+        display_field(field1)
+        print()
+        print('Write coordinates: ')
+        hit = list(input('>>> '))
+        if hit[0] == "~":
+            display_field(field)
+            print("____---------______")
+            continue
+        print()
+        print()
+        hitted = checkHit(field, hit)
+        if hitted:
+            for i in range(len(field)):
+                for j in range(len(field)):
+                    if i == hit[1] and j == hit[0] - 1:
+                        if field[i][j] == '▢':
+                            field1[i][j] = 'X'
+            print('Last hit: Good shot!')
+            print()
+        elif not hitted:
+            for i in range(len(field)):
+                for j in range(len(field)):
+                    if i == hit[1] and j == hit[0] - 1:
+                        field1[i][j] = '*'
+                        continue
+            print('Last hit: You missed')
+            print()
